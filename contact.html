@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="initial-scale=1, width=device-width">
+	<meta name="description"
+		content="Gabbi, Saloni Sharma, undergraduate, Lund University, Babson College, Lund, Malmo, travel blog, recommendations, study abroad guide, exchange student guide">
+	<meta name="keywords"
+		content="Sweden, Europe, travel, restaurants, eating, blog, activities, study abroad, abroad, exchange student, swedish, Lund, Malmo, Lomma, Scandinavia, living-abroad">
+	<title>Home | Gabbi Tiangco</title>
+
+	<!-- Imported CSS for Bootstrap -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+	<!-- External CSS -->
+	<link rel="stylesheet" href="style.css">
+
+	<!-- Internal CSS -->
+	<style>
+		#postcard {
+			background: url("images/postcard.jpg");
+			background-size: 100% 100%;
+			padding: 20px;
+		}
+	</style>
+	<script>
+	 function processForm()
+	{
+		var myform=document.getElementById("form");
+		if (myform.fname.value == "")
+		{
+			alert("First name is required");
+		}
+		else if (myform.lname.value == "")
+		{
+			alert("Last name is required");
+		}
+        else if (myform.email.value == "")
+		{
+			alert("Email is required");
+		}     
+        else if (myform.Q1.checked == false && myform.Q2.checked == false && myform.Q3.checked == false && myform.Q4.checked == false && myform.Q5.checked == false)
+		{
+			alert("You must choose a genre");
+		}
+			else 
+		{
+			return true;
+		}
+		return false;
+	}
+
+	function color(){
+	document.getElementById("body1").style.backgroundColor="cyan";
+	}
+        </script>
+</head>
+
+<body id="body1" onclick="color()">
+	<div class="container">
+		<nav id="main-nav" class="navbar navbar-expand-sm navbar-light">
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+				aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+				<div class="navbar-nav">
+						<a class="nav-item nav-link" href="index.htm">Home</a>
+						<a class="nav-item nav-link" href="lund.htm">Lund</a>
+						<a class="nav-item nav-link" href="malmo.htm">Malmo</a>
+						<a class="nav-item nav-link" href="travel-europe.htm">Travel Europe</a>
+						<a class="nav-item nav-link" href="contact.htm">Contact</a>
+						<a class="nav-item nav-link" href="site-map.htm">Site-map</a>
+
+				</div>
+			</div>
+		</nav>
+		<form method ="post" action ="mailer.php" onsubmit="return processForm()" id="form"> 
+		<div id="postcard">
+			<label for="fname">First Name</label><br>
+			<input name="fname" type="text"><br>
+			<label for="lname">Last Name</label><br>
+			<input name="lname" type="text"><br>
+			<label for="email">Email</label><br>
+			<input name="email" type="email"><br>
+			<label for="rate">Rate my website!</label><br>
+			<select name="rate">
+				<option value="5">Love</option>
+				<option value="4">Like</option>
+				<option value="3">Okay</option>
+				<option value="2">Dislike</option>
+				<option value="1">Terrible</option>
+			</select><br>
+			<label for="page">My favorite page was...</label><br>
+			<input type="radio" name="page"> Lund
+			<input type="radio" name="page"> Malmo
+			<input type="radio" name="page"> Travel Europe
+			<input type="radio" name="page"> Home
+			<br>
+			<label for="message">Leave me a message below</label><br>
+			<textarea name="message" placeholder="Write any questions or any comments!" color="light-blue" rows="8"
+				cols="60"></textarea><br>
+			<input type="submit" Value="Submit" />
+			<input type="reset" Value="Clear" />
+		</div>
+	</form>	
+	</div>
+
+
+	<!-- Imported JS for Bootstrap -->
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+		crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+		crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+		crossorigin="anonymous"></script>
+</body>
+
+</html>

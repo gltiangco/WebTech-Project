@@ -1,48 +1,146 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
-<link href="menubar.css" rel="stylesheet" type="text/css">
-<title>Home Page</title> 
-<style>
-img{width: 300px;}
-</style>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Home Page</title>
+	<!-- Imported CSS for Bootstrap -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+	<!-- External CSS -->
+	<link rel="stylesheet" href="style.css">
+	<style>
+		img {
+			width: 300px;
+		}
+
+		#slideshow-screen {
+			margin: auto;
+			overflow: hidden;
+			width: 60%;
+		}
+
+		#slide-holder {
+			width: 400%;
+		}
+
+		.slide {
+			width: 25%;
+		}
+
+		#slide-controls {
+			margin-bottom: 20px;
+			margin-top: 10px;
+			text-align: center;
+		}
+
+		.slide-button {
+			height: 15px;
+			position: relative;
+			width: 15px;
+		}
+
+		.slide-button::after {
+			background-color: #CCC;
+			border-radius: 100%;
+			content: "";
+			height: 15px;
+			left: 0;
+			position: absolute;
+			top: 0;
+			width: 15px;
+		}
+
+		.slide-button:checked::after {
+			background-color: #444;
+		}
+	</style>
+
+
+	<script src="http://code.jquery.com/jquery.min.js"></script>
+	<script type="text/javascript">
+		var imageList = new Array("images/lommsun.jpg", "images/pastries.jpg", "images/lommalake.jpg", "images/kulturen.jpg")
+		var counter = 0
+		function chgimg() {
+			document.getElementById("me").src = imageList[counter]
+			counter = counter + 1
+			if (counter == imageList.length) {
+				counter = 0
+			}
+			setTimeout("chgimg()", 2000)
+		}
+		function textchange() {
+			let b = document.getElementById("headline");
+			b.innerHTML = "You should study abroad in Sweden!"
+		}
+		function big() {
+			document.getElementById("change").style.fontSize = "xx-large";
+		}
+		function reduce() {
+			document.getElementById("change").style.fontSize = "small";
+		}
+		$(document).ready(function(){
+        $("p").click(function(){
+        $(this).hide();
+        });
+        });
+	</script>
 </head>
-<body>
-<div class="mbar"> 
-<a href="index.htm">Home</a>
-<a href="lund.htm"> Lund </a>
-<a href="malmo.htm"> Malmo</a>
-<a href="traveleurope.htm"> Travel Europe</a>
-<a href="contact.htm"> Contact Me</a>
-<a href="site-map.htm"> Site-map</a>
-</div>
-<audio controls>
-<source src="images/CanI.mp3" type="audio/mpeg">
-</audio>
-<table>
-<tr>
-<th colspan="4">About Me</th>
-</tr>
-<img src="images/aboutme.jpg">
-<tr>
-<td colspan="4">Welcome to Spend it in Sweden! My name is Gabbi, a student who spent the Spring of 2019 on an 
-exchange program in Lund, Sweden. During this time, I had the great pleasure of calling 3 different cities my home having lived in
-Lomma, studied in Lund and spent weekends hanging out in Malmo. This website catalogs my entire semester, covering the must-knows of living in Sweden to 
-the tips and tricks of traveling in Europe, to an explorer's guide to some yummy food and topnotch activities. Enjoy! 
-</td>
-</tr>
-</table>
-<p>    
-<img src="images/Skånemap.jpg" usemap="#Skåne" alt="Skåne" title="Clickable Map"/>
-<map name="Skåne">     
-<area shape="rect" coords="97, 197, 155, 217" alt="Lund" a href="lund.htm"  
-title="Lund" target="_blank" />
-<area shape="rect" coords="49, 220, 107, 240" alt="Malmo" a href="malmo.htm" 
-title="Malmo" target="_blank" />
-</map>  
-</p>
+
+<body onload="chgimg()" onmouseover="big()" onmouseout="reduce()">
+	<div class="container">
+		<div>
+			<nav id="main-nav" class="navbar navbar-expand-sm navbar-light">
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+					aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+					<div class="navbar-nav">
+							<a class="nav-item nav-link" href="index.htm">Home</a>
+                            <a class="nav-item nav-link" href="lund.htm">Lund</a>
+                            <a class="nav-item nav-link" href="malmo.htm">Malmo</a>
+                            <a class="nav-item nav-link" href="travel-europe.htm">Travel Europe</a>
+                            <a class="nav-item nav-link" href="contact.htm">Contact</a>
+                            <a class="nav-item nav-link" href="site-map.htm">Site-map</a>
+					</div>
+				</div>
+			</nav>
+		</div>
+		<table>
+			<tr>
+				<th colspan="4"  id="change">About Me</th>
+			</tr>
+			<img src="images/aboutme.jpg" id="me">
+			<tr>
+				<td colspan="4" onclick="textchange()"><span id="headline">Welcome to Spend it in Sweden!</span> My name
+					is Gabbi, a student who spent the Spring of 2019 on an
+					exchange program in Lund, Sweden. During this time, I had the great pleasure of calling 3 different
+					cities my home having lived in
+					Lomma, studied in Lund and spent weekends hanging out in Malmo. This website catalogs my entire
+					semester, covering the must-knows of living in Sweden to
+					the tips and tricks of traveling in Europe, to an explorer's guide to some yummy food and topnotch
+					activities. Enjoy!
+				</td>
+			</tr>
+		</table>
+		<p>
+			<img src="images/Skånemap.jpg" usemap="#Skåne" alt="Skåne" title="Clickable Map" />
+			<map name="Skåne">
+				<area shape="rect" coords="97, 197, 155, 217" alt="Lund" a href="lund.htm" title="Lund"
+					target="_blank" />
+				<area shape="rect" coords="49, 220, 107, 240" alt="Malmo" a href="malmo.htm" title="Malmo"
+					target="_blank" />
+			</map>
+		</p>
+
+
+		<audio controls>
+			<source src="images/CanI.mp3" type="audio/mpeg">
+		</audio>
 </body>
+
 </html>

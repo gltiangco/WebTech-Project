@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="initial-scale=1, width=device-width">
+	<meta name="description"
+		content="Gabbi, Saloni Sharma, undergraduate, Lund University, Babson College, Lund, Malmo, travel blog, recommendations, study abroad guide, exchange student guide">
+	<meta name="keywords"
+		content="Sweden, Europe, travel, restaurants, eating, blog, activities, study abroad, abroad, exchange student, swedish, Lund, Malmo, Lomma, Scandinavia, living-abroad">
+	<title>Home | Gabbi Tianco</title>
+
+	<!-- Imported CSS for Bootstrap -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+	<!-- External CSS -->
+	<link rel="stylesheet" href="style.css">
+
+	<!-- Internal CSS -->
+	<style>
+		.thumb {
+			cursor: pointer;
+			margin-top: 20px;
+			width: 100%;
+		}
+
+		#video-wrapper {
+			background-color: rgba(0, 0, 0, 0.8);
+			display: none;
+			height: 100vh;
+			left: 0;
+			position: absolute;
+			text-align: center;
+			top: 0;
+			width: 100vw;
+		}
+
+		#video {
+			margin-top: 50px;
+		}
+
+		#close {
+			color: #FFF;
+			cursor: pointer;
+			font-size: 24px;
+			position: absolute;
+			right: 20px;
+			top: 20px;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<nav id="main-nav" class="navbar navbar-expand-sm navbar-light">
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+				<div class="navbar-nav">
+						<a class="nav-item nav-link" href="index.htm">Home</a>
+						<a class="nav-item nav-link" href="lund.htm">Lund</a>
+						<a class="nav-item nav-link" href="malmo.htm">Malmo</a>
+						<a class="nav-item nav-link" href="travel-europe.htm">Travel Europe</a>
+						<a class="nav-item nav-link" href="contact.htm">Contact</a>
+						<a class="nav-item nav-link" href="site-map.htm">Site-map</a>
+				</div>
+			</div>
+		</nav>
+		<div class="row">
+			<div class="col-sm-4"><img onclick="o(this);" class="thumb" src="images/barcelona.jpg" alt="Barcelona Thumbnail" title="Click for video"></div>
+			<div class="col-sm-4"><img onclick="o(this);" class="thumb" src="images/oslo.jpg" alt="Oslo Thumbnail" title="Click for video"></div>
+			<div class="col-sm-4"><img onclick="o(this);" class="thumb" src="images/nice.jpg" alt="Nice Thumbnail" title="Click for video"></div>
+		</div>
+		<div class="row">
+			<div class="col-sm-4"><img onclick="o(this);" class="thumb" src="images/munich.jpg" alt="Munich Thumbnail" title="Click for video"></div>
+			<div class="col-sm-4"><img onclick="o(this);" class="thumb" src="images/ostersund.jpg" alt="Ostersund Thumbnail" title="Click for video"></div>
+			<div class="col-sm-4"><img onclick="o(this);" class="thumb" src="images/amsterdam.jpg" alt="Amsterdam Thumbnail" title="Click for video"></div>
+		</div>
+	</div>
+	<div id="video-wrapper">
+		<iframe id="video" src="https://player.vimeo.com/video/328310812" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+		<div onclick="c();" id="close">X</div>
+	</div>
+
+	<!-- Imported JS for Bootstrap -->
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+	<script>
+		function o(i) {
+			var videoSources = ["https://player.vimeo.com/video/328310812", "https://player.vimeo.com/video/325087528", "https://player.vimeo.com/video/336167879", "https://player.vimeo.com/video/329103458", "https://player.vimeo.com/video/316905687", "https://player.vimeo.com/video/328059665"];
+
+			document.getElementById("video").src = videoSources[$(".thumb").index(i)];
+			document.getElementById("video-wrapper").style.display = "block";
+		}
+
+		function c() {
+			document.getElementById("video-wrapper").style.display = "none";
+		}
+	</script>
+</body>
+</html>
